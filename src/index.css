@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Professional Coding Platform Design System */
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 22%;
+    --input: 217 33% 22%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --success: 160 84% 39%;
+    --success-foreground: 222 47% 11%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+    --info: 199 89% 48%;
+    --info-foreground: 222 47% 11%;
+
+    /* Difficulty colors */
+    --easy: 160 84% 39%;
+    --medium: 38 92% 50%;
+    --hard: 0 84% 60%;
+
+    /* Editor */
+    --editor-bg: 222 47% 8%;
+    --editor-border: 217 33% 18%;
+    --editor-gutter: 222 47% 12%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 84% 50%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(222 47% 16%) 0%, hsl(222 47% 12%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 5% / 0.5);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 5% / 0.5), 0 2px 4px -2px hsl(222 47% 5% / 0.5);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 5% / 0.5), 0 4px 6px -4px hsl(222 47% 5% / 0.5);
+    --shadow-glow: 0 0 20px hsl(217 91% 60% / 0.3);
+
+    --sidebar-background: 222 47% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 217 33% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 18%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .btn-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .difficulty-easy {
+    @apply bg-easy/20 text-easy border-easy/30;
+  }
+
+  .difficulty-medium {
+    @apply bg-warning/20 text-warning border-warning/30;
+  }
+
+  .difficulty-hard {
+    @apply bg-destructive/20 text-destructive border-destructive/30;
+  }
+
+  .status-solved {
+    @apply bg-success/20 text-success;
+  }
+
+  .status-unsolved {
+    @apply bg-muted text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
