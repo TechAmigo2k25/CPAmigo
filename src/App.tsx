@@ -72,7 +72,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/CPAmigo/">
         <AuthProvider>
           <AppRoutes />
         </AuthProvider>
